@@ -1,0 +1,2 @@
+# Polls
+just learning django
