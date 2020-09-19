@@ -11,6 +11,10 @@ class Question(models.Model):
     def wasPublishedRecently(self):
         now = timezone.now()
         return now - datetime.timedelta(days=1) <= self.pub_date <= now
+
+    wasPublishedRecently.admin_order_field = 'pub_date'
+    wasPublishedRecently.boolean = True
+    wasPublishedRecently.short_description = 'Published recently?'
     
     def test_was_published_recently_with_old_question(self):
         """
